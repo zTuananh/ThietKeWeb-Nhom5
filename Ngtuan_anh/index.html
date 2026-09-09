@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Sinh Viên - Nguyễn Tuấn Anh</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #121214; color: #a9adc1; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 30px 15px; }
+
+        .portfolio-container { display: flex; flex-direction: row; max-width: 980px; width: 100%; background: #1e1e24; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); border: 1px solid #2e2e38; }
+
+        /* CỘT TRÁI */
+        .sidebar { width: 320px; background: #25252d; padding: 35px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #2e2e38; }
+        .avatar-box { width: 125px; height: 125px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #3b82f6, #10b981); margin-bottom: 15px; }
+        .avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .sidebar h2 { color: #fff; font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
+        .sidebar .role { background: #1e1e24; color: #3b82f6; font-size: 0.78rem; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 20px; font-weight: 500; border: 1px solid #2e2e38; }
+
+        .personal-info { width: 100%; text-align: left; background: #1e1e24; padding: 15px; border-radius: 12px; border: 1px solid #2e2e38; margin-bottom: 18px; }
+        .info-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.82rem; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-item i { color: #3b82f6; font-size: 0.95rem; width: 18px; text-align: center; }
+        .info-item div { display: flex; flex-direction: column; }
+        .info-item span { font-size: 0.68rem; color: #6c728f; text-transform: uppercase; }
+        .info-item strong { color: #fff; font-size: 0.85rem; }
+
+        .objective-box { width: 100%; text-align: left; background: #1e1e24; padding: 15px; border-radius: 12px; border: 1px solid #2e2e38; margin-bottom: 18px; }
+        .objective-box h4 { color: #3b82f6; font-size: 0.82rem; margin-bottom: 6px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+        .objective-box p { font-size: 0.78rem; color: #a9adc1; line-height: 1.4; }
+
+        .socials { display: flex; gap: 10px; width: 100%; justify-content: center; }
+        .socials a { width: 36px; height: 36px; background: #1e1e24; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; border: 1px solid #2e2e38; transition: 0.3s; }
+        .socials a:hover { background: #3b82f6; border-color: #3b82f6; transform: translateY(-3px); }
+
+        /* CỘT PHẢI */
+        .main-content { flex: 1; padding: 35px 30px; display: flex; flex-direction: column; gap: 20px; }
+        
+        .cv-section { background: #25252d; padding: 18px 20px; border-radius: 14px; border: 1px solid #2e2e38; }
+        .cv-section h3 { color: #fff; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #2e2e38; padding-bottom: 8px; }
+        .cv-section h3 i { color: #3b82f6; }
+
+        .item-block { margin-bottom: 12px; }
+        .item-block:last-child { margin-bottom: 0; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        .item-header strong { color: #fff; font-size: 0.9rem; }
+        .item-header .date { font-size: 0.75rem; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 10px; }
+        .item-sub { font-size: 0.8rem; color: #3b82f6; margin-bottom: 6px; }
+        
+        .cv-list { list-style: none; }
+        .cv-list li { font-size: 0.82rem; margin-bottom: 4px; position: relative; padding-left: 14px; color: #cbd5e1; }
+        .cv-list li::before { content: '•'; color: #3b82f6; font-weight: bold; position: absolute; left: 0; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+        .skill-card { background: #1e1e24; padding: 10px 12px; border-radius: 8px; border: 1px solid #2e2e38; }
+        .skill-card span { font-size: 0.8rem; color: #fff; font-weight: 500; }
+        .skill-card p { font-size: 0.72rem; color: #6c728f; margin-top: 2px; }
+
+        @media (max-width: 800px) {
+            .portfolio-container { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #2e2e38; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="portfolio-container">
+    <!-- CỘT TRÁI: Avatar & Thông tin cá nhân -->
+    <div class="sidebar">
+        <div class="avatar-box">
+            <img src="avatar.jpg" alt="Ảnh đại diện">
+        </div>
+        <h2>Nguyễn Tuấn Anh</h2>
+        <span class="role">Sinh viên CNTT</span>
+
+        <div class="personal-info">
+            <div class="info-item">
+                <i class="fa-solid fa-id-card"></i>
+                <div>
+                    <span>Mã sinh viên</span>
+                    <strong>24100132</strong>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-cake-candles"></i>
+                <div>
+                    <span>Ngày sinh</span>
+                    <strong>05/12/2006</strong>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                    <span>Giới tính</span>
+                    <strong>Nam</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="objective-box">
+            <h4><i class="fa-solid fa-bullseye"></i> Mục tiêu học tập</h4>
+            <p>Tích lũy kiến thức nền tảng về Lập trình Web và Git Workflow. Phấn đấu trở thành Full-stack Developer chuyên nghiệp trong 2 năm tới.</p>
+        </div>
+
+        <div class="socials">
+            <a href="https://github.com/zTuananh" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+
+    <!-- CỘT PHẢI: Chuẩn CV Sinh Viên -->
+    <div class="main-content">
+        <!-- HỌC VẤN -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-graduation-cap"></i> HỌC VẤN</h3>
+            <div class="item-block">
+                <div class="item-header">
+                    <strong>Chuyên ngành Công Nghệ Thông Tin</strong>
+                    <span class="date">2024 - Hiện tại</span>
+                </div>
+                <div class="item-sub">Trường Đại học </div>
+                <ul class="cv-list">
+                    <li>Điểm trung bình (GPA) các môn chuyên ngành duy trì loại ....</li>
+                    <li>Đã hoàn thành các môn học: Cơ sở lập trình, Thiết kế Web cơ bản, Cấu trúc dữ liệu.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DỰ ÁN & HOẠT ĐỘNG SINH VIÊN -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-laptop-code"></i> DỰ ÁN & BÀI TẬP LỚN</h3>
+            <div class="item-block">
+                <div class="item-header">
+                    <strong>Website Giới Thiệu Nhóm 5 & Cá Nhân</strong>
+                    <span class="date">Bài tập nhóm</span>
+                </div>
+                <div class="item-sub">Vai trò: Thành viên phát triển Web</div>
+                <ul class="cv-list">
+                    <li>Xây dựng trang cá nhân Responsive bằng HTML5/CSS3 .</li>
+                    <li>Thực hành làm việc nhóm quy chuẩn với Git: Tạo nhánh Feature, Commit và tạo Pull Request.</li>
+                    <li>Phối hợp cùng nhóm hoàn thành trang `tasks/group/about.html`.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- KỸ NĂNG -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-pen-ruler"></i> KỸ NĂNG NỔI BẬT</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span>Lập trình Web</span>
+                    <p>HTML5, CSS3, JavaScript cơ bản</p>
+                </div>
+                <div class="skill-card">
+                    <span>Quản lý Mã nguồn</span>
+                    <p>Git, GitHub Workflow, Branching</p>
+                </div>
+                <div class="skill-card">
+                    <span>Kỹ năng mềm</span>
+                    <p>Làm việc nhóm, Giải quyết vấn đề</p>
+                </div>
+                <div class="skill-card">
+                    <span>Tin học & Ngoại ngữ</span>
+                    <p>Word, PowerPoint, Tiếng Anh Chuyên ngành</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIẢI THƯỞNG & CHỨNG CHỈ -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-trophy"></i> CHỨNG CHỈ & GIẢI THƯỞNG</h3>
+            <div class="item-block">
+                <ul class="cv-list">
+                    <li><strong>Chứng chỉ Git & GitHub Basis:</strong> Hoàn thành khóa học làm việc nhóm và quản lý mã nguồn.</li>
+                    <li><strong>Sinh viên Tích cực:</strong> Tham gia tích cực các hoạt động phong trào và học tập môn Web.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
