@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Nhóm 5</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #0f0f12;
+            --bg-card: #18181c;
+            --bg-inner: #202026;
+            --border-color: #2a2a34;
+            --text-main: #a9adc1;
+            --text-title: #ffffff;
+            --primary-color: #3b82f6;
+        }
+
+        /* [TÍNH NĂNG 1] CSS cho Light Mode */
+        body.light-mode {
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-inner: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-main: #475569;
+            --text-title: #0f172a;
+            --primary-color: #2563eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: background 0.3s, color 0.3s; }
+        body { background-color: var(--bg-body); color: var(--text-main); padding: 40px 20px; min-height: 100vh; display: flex; justify-content: center; position: relative; }
+        
+        .container { max-width: 1200px; width: 100%; background: var(--bg-card); border-radius: 20px; padding: 45px 50px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        
+        /* Header & Controls */
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .theme-toggle-btn { background: var(--bg-inner); border: 1px solid var(--border-color); color: var(--text-title); padding: 10px 16px; border-radius: 30px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+        
+        .group-header { text-align: center; margin-bottom: 35px; border-bottom: 1px solid var(--border-color); padding-bottom: 30px; }
+        .group-header h1 { color: var(--text-title); font-size: 2.5rem; margin-bottom: 10px; }
+        .group-header h1 span { color: var(--primary-color); }
+        .group-header p { font-size: 1rem; color: var(--text-main); }
+
+        /* Stats Bar */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 35px; }
+        .stat-box { background: var(--bg-inner); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; text-align: center; }
+        .stat-box i { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 8px; }
+        .stat-box h4 { color: var(--text-title); font-size: 1.4rem; font-weight: 700; }
+        .stat-box p { font-size: 0.8rem; }
+
+        /* [TÍNH NĂNG 2] Thanh tìm kiếm thành viên */
+        .search-box { margin-bottom: 25px; position: relative; }
+        .search-box input { width: 100%; background: var(--bg-inner); border: 1px solid var(--border-color); color: var(--text-title); padding: 14px 20px 14px 45px; border-radius: 12px; outline: none; font-size: 0.9rem; }
+        .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--primary-color); }
+
+        /* Info Layout */
+        .info-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 35px; }
+        .summary-list, .tech-stack { background: var(--bg-inner); padding: 22px; border-radius: 14px; border: 1px solid var(--border-color); }
+        .summary-list h3, .tech-stack h3 { color: var(--text-title); font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .summary-list h3 i, .tech-stack h3 i { color: var(--primary-color); }
+        .summary-list ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding-left: 0; }
+        .summary-list li { background: var(--bg-card); color: var(--text-main); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; border: 1px solid var(--border-color); }
+        .tech-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-badge { background: #3b82f61a; color: var(--primary-color); border: 1px solid #3b82f640; padding: 5px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 500; }
+
+        /* Member Grid */
+        .section-title { color: var(--text-title); font-size: 1.35rem; margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+        .section-title i { color: #10b981; }
+        .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .member-card { background: var(--bg-inner); padding: 25px 18px; border-radius: 16px; text-align: center; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; }
+        .member-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .member-card img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--primary-color); }
+        .member-card h3 { color: var(--text-title); font-size: 1.1rem; margin-bottom: 8px; }
+        .member-card p { font-size: 0.82rem; margin-bottom: 18px; flex-grow: 1; line-height: 1.5; }
+        .member-card a { color: var(--primary-color); text-decoration: none; font-size: 0.85rem; font-weight: 500; border: 1px solid var(--primary-color); padding: 7px 16px; border-radius: 8px; }
+        .member-card a:hover { background: var(--primary-color); color: #fff; }
+
+        /* [TÍNH NĂNG 3] Project Timeline (Lịch trình thực hiện) */
+        .timeline { position: relative; margin-bottom: 40px; padding-left: 20px; border-left: 2px solid var(--border-color); }
+        .timeline-item { position: relative; margin-bottom: 20px; padding-left: 20px; }
+        .timeline-item::before { content: ''; position: absolute; left: -27px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); }
+        .timeline-date { font-size: 0.8rem; color: var(--primary-color); font-weight: 600; }
+        .timeline-title { color: var(--text-title); font-size: 0.95rem; font-weight: 600; }
+
+        /* Table */
+        .table-container { overflow-x: auto; margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; background: var(--bg-inner); border-radius: 14px; overflow: hidden; border: 1px solid var(--border-color); }
+        th, td { padding: 14px 20px; text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg-card); color: var(--text-title); font-weight: 600; border-bottom: 1px solid var(--border-color); }
+        td { border-bottom: 1px solid var(--border-color); color: var(--text-main); }
+
+        /* Form */
+        .contact-form { background: var(--bg-inner); padding: 30px; border-radius: 16px; border: 1px solid var(--border-color); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 0.88rem; color: var(--text-title); font-weight: 500; }
+        .form-group input { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-title); padding: 12px 16px; border-radius: 10px; font-size: 0.9rem; outline: none; }
+        input[type="submit"] { background: var(--primary-color); color: #fff; border: none; padding: 14px; border-radius: 10px; font-weight: 600; cursor: pointer; width: 100%; font-size: 0.95rem; }
+
+        .form-alert { display: none; margin-top: 15px; padding: 12px; background: #10b98120; border: 1px solid #10b981; color: #34d399; border-radius: 8px; text-align: center; font-size: 0.88rem; }
+
+        /* [TÍNH NĂNG 4] Scroll To Top Button */
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary-color); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: none; opacity: 0; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .back-to-top.show { opacity: 1; pointer-events: auto; }
+
+        @media (max-width: 768px) {
+            .info-layout, .form-row { grid-template-columns: 1fr; }
+            .container { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header top có nút chuyển Theme -->
+    <div class="header-top">
+        <div class="tech-badge"><i class="fa-solid fa-code"></i> Nhóm 5 - Lớp CNTT</div>
+        <button class="theme-toggle-btn" id="themeToggle"><i class="fa-solid fa-moon"></i> <span>Giao diện Tối</span></button>
+    </div>
+
+    <!-- Phần tiêu đề -->
+    <div class="group-header">
+        <h1>Nhóm <span>5</span></h1>
+        <p>Dự án thiết kế website giới thiệu nhóm và các thành viên</p>
+    </div>
+
+    <!-- Bảng thống kê tiến độ -->
+    <div class="stats-grid">
+        <div class="stat-box"><i class="fa-solid fa-user-group"></i><h4>4</h4><p>Thành viên</p></div>
+        <div class="stat-box"><i class="fa-solid fa-code-commit"></i><h4>100%</h4><p>Hoàn thành yêu cầu</p></div>
+        <div class="stat-box"><i class="fa-solid fa-code-branch"></i><h4>Git Flow</h4><p>Quy trình chuẩn</p></div>
+        <div class="stat-box"><i class="fa-solid fa-circle-check"></i><h4>Public</h4><p>Repository</p></div>
+    </div>
+
+    <!-- Layout ghép Danh sách thành viên (ul/li) + Công nghệ -->
+    <div class="info-layout">
+        <div class="summary-list">
+            <h3><i class="fa-solid fa-users"></i> Danh Sách Thành Viên</h3>
+            <ul>
+                <li>Nguyễn Tuấn Anh (24100132)</li>
+                <li>Lê Trọng Tuấn Anh (24100309)</li>
+                <li>Lê Đăng Hoàng Lợi (24100138)</li>
+                <li>Doãn Anh Tú (24100081)</li>
+            </ul>
+        </div>
+        <div class="tech-stack">
+            <h3><i class="fa-solid fa-layer-group"></i> Công Nghệ</h3>
+            <div class="tech-badges">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">Git & GitHub</span>
+                <span class="tech-badge">JavaScript</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- [TÍNH NĂNG 2] Thanh tìm kiếm thành viên -->
+    <h2 class="section-title"><i class="fa-solid fa-user-gear"></i> Thông Tin Chi Tiết</h2>
+    <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="memberSearch" placeholder="Lọc nhanh thành viên theo tên hoặc nhiệm vụ...">
+    </div>
+
+    <!-- Grid thành viên -->
+    <div class="members-grid" id="membersGrid">
+        <div class="member-card">
+            <img src="../../Ngtuan_anh/avatar.jpg" alt="Nguyễn Tuấn Anh">
+            <h3>Nguyễn Tuấn Anh</h3>
+            <p>Trưởng nhóm - Quản lý repository Git, thiết kế cấu trúc chung và phát triển trang nhóm.</p>
+            <a href="../../Ngtuan_anh/index.html">Trang cá nhân</a>
+        </div>
+        <div class="member-card">
+            <img src="https://via.placeholder.com/90" alt="Lê Trọng Tuấn Anh">
+            <h3>Lê Trọng Tuấn Anh</h3>
+            <p>Thành viên - Phụ trách biên tập nội dung thông tin nhóm và tối ưu hiển thị cá nhân.</p>
+            <a href="../../Member_2/index.html">Trang cá nhân</a>
+        </div>
+        <div class="member-card">
+            <img src="https://via.placeholder.com/90" alt="Lê Đăng Hoàng Lợi">
+            <h3>Lê Đăng Hoàng Lợi</h3>
+            <p>Thành viên - Thiết kế bảng phân công nhiệm vụ và tối ưu giao diện bảng biểu.</p>
+            <a href="../../Member_3/index.html">Trang cá nhân</a>
+        </div>
+        <div class="member-card">
+            <img src="https://via.placeholder.com/90" alt="Doãn Anh Tú">
+            <h3>Doãn Anh Tú</h3>
+            <p>Thành viên - Rà soát các liên kết hệ thống và kiểm thử tính tương thích trên Di động.</p>
+            <a href="../../Member_4/index.html">Trang cá nhân</a>
+        </div>
+    </div>
+
+    <!-- [TÍNH NĂNG 3] Lịch trình dự án (Project Timeline) -->
+    <h2 class="section-title"><i class="fa-solid fa-timeline"></i> Tiến Độ Thực Hiện Dự Án</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">Bước 1</div>
+            <div class="timeline-title">Khởi tạo Repository mẫu & Phân công nhiệm vụ nhóm</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Bước 2</div>
+            <div class="timeline-title">Phát triển giao diện cá nhân trên nhánh feature riêng</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Bước 3</div>
+            <div class="timeline-title">Xây dựng file `about.html`, kiểm thử Form & Responsive</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">Bước 4</div>
+            <div class="timeline-title">Merge Pull Request về nhánh `main` và nộp bài Public Repo</div>
+        </div>
+    </div>
+
+    <!-- Bảng phân công -->
+    <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Bảng Phân Công Nhiệm Vụ</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>Tên Thành Viên</th><th>Nhiệm Vụ Phụ Trách</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Nguyễn Tuấn Anh</strong></td><td>Khởi tạo repo, dựng khung dự án `about.html`, quản lý nhánh Git và thiết kế trang cá nhân.</td></tr>
+                <tr><td><strong>Lê Trọng Tuấn Anh</strong></td><td>Xây dựng trang cá nhân riêng và cập nhật thông tin giới thiệu thành viên.</td></tr>
+                <tr><td><strong>Lê Đăng Hoàng Lợi</strong></td><td>Xây dựng trang cá nhân riêng và hoàn thiện dữ liệu bảng phân công nhiệm vụ.</td></tr>
+                <tr><td><strong>Doãn Anh Tú</strong></td><td>Xây dựng trang cá nhân riêng, kiểm tra form liên hệ và test giao diện Responsive.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Form liên hệ -->
+    <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Form Liên Hệ</h2>
+    <form class="contact-form" id="groupContactForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập họ và tên..." required>
+            </div>
+            <div class="form-group">
+                <label for="email">Địa chỉ Email:</label>
+                <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email..." required>
+            </div>
+        </div>
+        <input type="submit" value="Gửi thông tin liên hệ">
+        <div class="form-alert" id="formAlert">
+            <i class="fa-solid fa-circle-check"></i> Cảm ơn bạn! Thông tin liên hệ đã được gửi thành công đến Nhóm 5.
+        </div>
+    </form>
+</div>
+
+<!-- Nút cuộn lên đầu trang -->
+<button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+    // 1. Chuyển đổi Light/Dark Mode
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        themeBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i> <span>Giao diện Sáng</span>' : '<i class="fa-solid fa-moon"></i> <span>Giao diện Tối</span>';
+    });
+
+    // 2. Tìm kiếm nhanh thành viên
+    const searchInput = document.getElementById('memberSearch');
+    const memberCards = document.querySelectorAll('.member-card');
+    searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase();
+        memberCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(val) ? 'flex' : 'none';
+        });
+    });
+
+    // 3. Xử lý Nút Back to Top
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // 4. Xử lý Submit Form
+    document.getElementById('groupContactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const alertBox = document.getElementById('formAlert');
+        alertBox.style.display = 'block';
+        this.reset();
+        setTimeout(() => alertBox.style.display = 'none', 4000);
+    });
+</script>
+
+</body>
+</html>
