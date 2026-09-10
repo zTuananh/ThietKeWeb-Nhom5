@@ -3,40 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang Chủ - Nhóm 5 - Thiết Kế Web</title>
-  <!-- Nhúng file CSS từ thư mục css -->
+  <title>Trang Chủ - Nhóm 5 | Portal Thiết Kế Web</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- CSS Cửa hàng -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <i class="fa-solid fa-code"></i> Nhóm 5 WebPortal
+      </a>
+      <ul class="nav-links">
+        <li><a href="#members"><i class="fa-solid fa-users"></i> Thành Viên</a></li>
+        <li><a href="#tasks"><i class="fa-solid fa-bars-progress"></i> Tiến Độ</a></li>
+        <li><a href="tasks/group/about.html"><i class="fa-solid fa-circle-info"></i> Giới Thiệu</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" title="Đổi giao diện">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
   <div class="container">
-    <header>
-      <h1>Đồ Án Thiết Kế Web - Nhóm 5</h1>
-      <p class="subtitle">Hệ thống quản lý bài tập & Thành viên dự án</p>
+    <!-- Hero Banner Header -->
+    <header class="hero-header">
+      <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Đồ Án Môn Học 2026</span>
+      <h1>Hệ Thống Quản Lý Đồ Án - Nhóm 5</h1>
+      <p class="subtitle">Nền tảng lưu trữ bài tập cá nhân, phân công nhiệm vụ & tài nguyên môn Thiết Kế Web</p>
     </header>
 
-    <hr>
+    <!-- Thống kê dự án (Project Overview Stats) -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <i class="fa-solid fa-user-group stat-icon"></i>
+        <div>
+          <h3>4</h3>
+          <p>Thành Viên</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fa-solid fa-square-check stat-icon"></i>
+        <div>
+          <h3>100%</h3>
+          <p>Bài Tập Tuần 1</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="fa-brands fa-github stat-icon"></i>
+        <div>
+          <h3>Main</h3>
+          <p>Branch Chính</p>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="section-title">1. Danh Sách Thành Viên & Trang Cá Nhân</h2>
-    <div class="grid-container">
-      <a href="tasks/Le_trong_tuan_anh/index.html" class="card-link">
-        👨‍💻 Lê Trọng Tuấn Anh
-      </a>
-      <a href="tasks/Ngtuan_anh/index.html" class="card-link">
-        👨‍💻 Nguyễn Tuấn Anh
-      </a>
-      <a href="tasks/doan_anh_tu/index.html" class="card-link">
-        👨‍💻 Đoàn Anh Tú
-      </a>
-    </div>
+    <main>
+      <!-- Tìm kiếm & Danh sách thành viên -->
+      <section id="members" class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fa-solid fa-users"></i> Thành Viên Nhóm
+          </h2>
+          <!-- Thanh tìm kiếm thành viên -->
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="memberSearch" placeholder="Tìm tên thành viên..." onkeyup="filterMembers()">
+          </div>
+        </div>
+        
+        <div class="grid-container" id="memberGrid">
+          <!-- Member 1 -->
+          <a href="tasks/Le_trong_tuan_anh/index.html" class="card-link" data-name="le trong tuan anh">
+            <div class="avatar-icon"><i class="fa-solid fa-user-gear"></i></div>
+            <div class="card-info">
+              <span class="member-role">Thành viên</span>
+              <span class="member-name">Lê Trọng Tuấn Anh</span>
+              <span class="view-profile">Xem trang cá nhân <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
 
-    <h2 class="section-title">2. Quản Lý Dự Án & Nhiệm Vụ</h2>
-    <div class="task-section">
-      <a href="tasks/group/about.html" class="btn-task">
-        📋 Xem thông tin nhóm & Phân công nhiệm vụ (Tasks)
-      </a>
-    </div>
+          <!-- Member 2 -->
+          <a href="tasks/Ngtuan_anh/index.html" class="card-link" data-name="nguyen tuan anh">
+            <div class="avatar-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <div class="card-info">
+              <span class="member-role">Nhóm Trưởng</span>
+              <span class="member-name">Nguyễn Tuấn Anh</span>
+              <span class="view-profile">Xem trang cá nhân <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <!-- Member 3 -->
+          <a href="tasks/Le_Dang_Hoang_Loi/index.html" class="card-link" data-name="le dang hoang loi">
+            <div class="avatar-icon"><i class="fa-solid fa-user-code"></i></div>
+            <div class="card-info">
+              <span class="member-role">Thành viên</span>
+              <span class="member-name">Lê Đăng Hoàng Lợi</span>
+              <span class="view-profile">Xem trang cá nhân <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <!-- Member 4 -->
+          <a href="tasks/doan_anh_tu/index.html" class="card-link" data-name="doan anh tu">
+            <div class="avatar-icon"><i class="fa-solid fa-user-pen"></i></div>
+            <div class="card-info">
+              <span class="member-role">Thành viên</span>
+              <span class="member-name">Doãn Anh Tú</span>
+              <span class="view-profile">Xem trang cá nhân <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Quản Lý Nhiệm Vụ & Tiến Độ -->
+      <section id="tasks" class="section">
+        <h2 class="section-title">
+          <i class="fa-solid fa-bars-progress"></i> Bảng Nhiệm Vụ & Tài Nguyên
+        </h2>
+        
+        <div class="task-grid">
+          <a href="tasks/group/about.html" class="task-card primary-task">
+            <div class="task-header">
+              <i class="fa-solid fa-users-gear icon-lg"></i>
+              <span class="status-badge status-done">Hoàn thành</span>
+            </div>
+            <h3>Thông Tin Nhóm & Bảng Phân Công</h3>
+            <p>Xem chi tiết nhiệm vụ, bảng phân công từng thành viên và form liên hệ nhóm.</p>
+            <span class="task-link-text">Truy cập ngay <i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+
+          <a href="https://github.com/zTuananh/ThietKeWeb-Nhom5" target="_blank" class="task-card">
+            <div class="task-header">
+              <i class="fa-brands fa-github icon-lg"></i>
+              <span class="status-badge status-live">Public Repo</span>
+            </div>
+            <h3>GitHub Repository</h3>
+            <p>Mã nguồn dự án trên GitHub, lưu trữ toàn bộ code HTML/CSS và commits.</p>
+            <span class="task-link-text">Mở GitHub <i class="fa-solid fa-up-right-from-square"></i></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 - Nhóm 5 - Thiết Kế Web | Phát triển bởi các thành viên Nhóm 5</p>
+    </footer>
   </div>
 
+  <!-- JavaScript tích hợp tính năng Tìm kiếm & Sáng/Tối -->
+  <script>
+    // 1. Chức năng Tìm kiếm thành viên nhanh
+    function filterMembers() {
+      const input = document.getElementById('memberSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('#memberGrid .card-link');
+      
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name.includes(input)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // 2. Chức năng đổi giao diện Sáng / Tối (Dark Mode)
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const icon = themeToggle.querySelector('i');
+      if (document.body.classList.contains('dark-mode')) {
+        icon.className = 'fa-solid fa-sun';
+      } else {
+        icon.className = 'fa-solid fa-moon';
+      }
+    });
+  </script>
 </body>
 </html>
