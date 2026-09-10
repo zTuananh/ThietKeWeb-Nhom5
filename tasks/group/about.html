@@ -17,7 +17,7 @@
             --primary-color: #3b82f6;
         }
 
-        /* [TÍNH NĂNG 1] CSS cho Light Mode */
+        /* Light Mode */
         body.light-mode {
             --bg-body: #f1f5f9;
             --bg-card: #ffffff;
@@ -49,7 +49,7 @@
         .stat-box h4 { color: var(--text-title); font-size: 1.4rem; font-weight: 700; }
         .stat-box p { font-size: 0.8rem; }
 
-        /* [TÍNH NĂNG 2] Thanh tìm kiếm thành viên */
+        /* Thanh tìm kiếm thành viên */
         .search-box { margin-bottom: 25px; position: relative; }
         .search-box input { width: 100%; background: var(--bg-inner); border: 1px solid var(--border-color); color: var(--text-title); padding: 14px 20px 14px 45px; border-radius: 12px; outline: none; font-size: 0.9rem; }
         .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--primary-color); }
@@ -76,7 +76,7 @@
         .member-card a { color: var(--primary-color); text-decoration: none; font-size: 0.85rem; font-weight: 500; border: 1px solid var(--primary-color); padding: 7px 16px; border-radius: 8px; }
         .member-card a:hover { background: var(--primary-color); color: #fff; }
 
-        /* [TÍNH NĂNG 3] Project Timeline (Lịch trình thực hiện) */
+        /* Project Timeline */
         .timeline { position: relative; margin-bottom: 40px; padding-left: 20px; border-left: 2px solid var(--border-color); }
         .timeline-item { position: relative; margin-bottom: 20px; padding-left: 20px; }
         .timeline-item::before { content: ''; position: absolute; left: -27px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary-color); }
@@ -100,7 +100,7 @@
 
         .form-alert { display: none; margin-top: 15px; padding: 12px; background: #10b98120; border: 1px solid #10b981; color: #34d399; border-radius: 8px; text-align: center; font-size: 0.88rem; }
 
-        /* [TÍNH NĂNG 4] Scroll To Top Button */
+        /* Scroll To Top Button */
         .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary-color); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: none; opacity: 0; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
         .back-to-top.show { opacity: 1; pointer-events: auto; }
 
@@ -113,19 +113,19 @@
 <body>
 
 <div class="container">
-    <!-- Header top có nút chuyển Theme -->
+    <!-- Header top -->
     <div class="header-top">
         <div class="tech-badge"><i class="fa-solid fa-code"></i> Nhóm 5 - Lớp CNTT</div>
         <button class="theme-toggle-btn" id="themeToggle"><i class="fa-solid fa-moon"></i> <span>Giao diện Tối</span></button>
     </div>
 
-    <!-- Phần tiêu đề -->
+    <!-- Tiêu đề -->
     <div class="group-header">
         <h1>Nhóm <span>5</span></h1>
         <p>Dự án thiết kế website giới thiệu nhóm và các thành viên</p>
     </div>
 
-    <!-- Bảng thống kê tiến độ -->
+    <!-- Thống kê -->
     <div class="stats-grid">
         <div class="stat-box"><i class="fa-solid fa-user-group"></i><h4>4</h4><p>Thành viên</p></div>
         <div class="stat-box"><i class="fa-solid fa-code-commit"></i><h4>100%</h4><p>Hoàn thành yêu cầu</p></div>
@@ -133,7 +133,7 @@
         <div class="stat-box"><i class="fa-solid fa-circle-check"></i><h4>Public</h4><p>Repository</p></div>
     </div>
 
-    <!-- Layout ghép Danh sách thành viên (ul/li) + Công nghệ -->
+    <!-- Danh sách & Công nghệ -->
     <div class="info-layout">
         <div class="summary-list">
             <h3><i class="fa-solid fa-users"></i> Danh Sách Thành Viên</h3>
@@ -155,42 +155,42 @@
         </div>
     </div>
 
-    <!-- [TÍNH NĂNG 2] Thanh tìm kiếm thành viên -->
+    <!-- Tìm kiếm thành viên -->
     <h2 class="section-title"><i class="fa-solid fa-user-gear"></i> Thông Tin Chi Tiết</h2>
     <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" id="memberSearch" placeholder="Lọc nhanh thành viên theo tên hoặc nhiệm vụ...">
     </div>
 
-    <!-- Grid thành viên -->
+    <!-- Grid thành viên (Đã sửa đường dẫn href & img) -->
     <div class="members-grid" id="membersGrid">
         <div class="member-card">
-            <img src="../../Ngtuan_anh/avatar.jpg" alt="Nguyễn Tuấn Anh">
+            <img src="../Ngtuan_anh/avatar.jpg" alt="Nguyễn Tuấn Anh">
             <h3>Nguyễn Tuấn Anh</h3>
             <p>Trưởng nhóm - Quản lý repository Git, thiết kế cấu trúc chung và phát triển trang nhóm.</p>
-            <a href="../../Ngtuan_anh/index.html">Trang cá nhân</a>
+            <a href="../Ngtuan_anh/index.html">Trang cá nhân</a>
         </div>
         <div class="member-card">
-            <img src="https://via.placeholder.com/90" alt="Lê Trọng Tuấn Anh">
+            <img src="../Le_trong_tuan_anh/ltta.jpg" alt="Lê Trọng Tuấn Anh">
             <h3>Lê Trọng Tuấn Anh</h3>
             <p>Thành viên - Phụ trách biên tập nội dung thông tin nhóm và tối ưu hiển thị cá nhân.</p>
-            <a href="../../Le_trong_tuan_anh/index.html">Trang cá nhân</a>
+            <a href="../Le_trong_tuan_anh/index.html">Trang cá nhân</a>
         </div>
         <div class="member-card">
             <img src="https://via.placeholder.com/90" alt="Lê Đăng Hoàng Lợi">
             <h3>Lê Đăng Hoàng Lợi</h3>
             <p>Thành viên - Thiết kế bảng phân công nhiệm vụ và tối ưu giao diện bảng biểu.</p>
-            <a href="../../Member_3/index.html">Trang cá nhân</a>
+            <a href="../Member_3/index.html">Trang cá nhân</a>
         </div>
         <div class="member-card">
-            <img src="../../doan_anh_tu/doan_anh_.jpg" alt="Doãn Anh Tú">
+            <img src="../doan_anh_tu/doan_anh_.jpg" alt="Doãn Anh Tú">
             <h3>Doãn Anh Tú</h3>
             <p>Thành viên - Rà soát các liên kết hệ thống và kiểm thử tính tương thích trên Di động.</p>
-            <a href="../../doan_anh_tu/index.html">Trang cá nhân</a>
+            <a href="../doan_anh_tu/index.html">Trang cá nhân</a>
         </div>
     </div>
 
-    <!-- [TÍNH NĂNG 3] Lịch trình dự án (Project Timeline) -->
+    <!-- Tiến độ dự án -->
     <h2 class="section-title"><i class="fa-solid fa-timeline"></i> Tiến Độ Thực Hiện Dự Án</h2>
     <div class="timeline">
         <div class="timeline-item">
@@ -247,7 +247,7 @@
     </form>
 </div>
 
-<!-- Nút cuộn lên đầu trang -->
+<!-- Nút Scroll To Top -->
 <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script>
@@ -270,7 +270,7 @@
         });
     });
 
-    // 3. Xử lý Nút Back to Top
+    // 3. Nút Back to Top
     const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) backBtn.classList.add('show');
@@ -278,7 +278,7 @@
     });
     backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // 4. Xử lý Submit Form
+    // 4. Submit Form
     document.getElementById('groupContactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const alertBox = document.getElementById('formAlert');
