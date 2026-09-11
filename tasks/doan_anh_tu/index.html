@@ -2,40 +2,139 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu cá nhân - Doãn Anh Tú</title>
+    <!-- FontAwesome & Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #121214; color: #a9adc1; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 30px 15px; }
+
+        .portfolio-container { display: flex; flex-direction: row; max-width: 980px; width: 100%; background: #1e1e24; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); border: 1px solid #2e2e38; }
+
+        /* CỘT TRÁI: Avatar & Thông tin cá nhân */
+        .sidebar { width: 320px; background: #25252d; padding: 35px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; border-right: 1px solid #2e2e38; }
+        .avatar-box { width: 125px; height: 125px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #3b82f6, #10b981); margin-bottom: 15px; }
+        .avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .sidebar h2 { color: #fff; font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
+        .sidebar .role { background: #1e1e24; color: #3b82f6; font-size: 0.78rem; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 20px; font-weight: 500; border: 1px solid #2e2e38; }
+
+        .personal-info { width: 100%; text-align: left; background: #1e1e24; padding: 15px; border-radius: 12px; border: 1px solid #2e2e38; margin-bottom: 18px; }
+        .info-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.82rem; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-item i { color: #3b82f6; font-size: 0.95rem; width: 18px; text-align: center; }
+        .info-item div { display: flex; flex-direction: column; }
+        .info-item span { font-size: 0.68rem; color: #6c728f; text-transform: uppercase; }
+        .info-item strong { color: #fff; font-size: 0.85rem; }
+
+        .objective-box { width: 100%; text-align: left; background: #1e1e24; padding: 15px; border-radius: 12px; border: 1px solid #2e2e38; margin-bottom: 18px; }
+        .objective-box h4 { color: #3b82f6; font-size: 0.82rem; margin-bottom: 6px; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+        .objective-box p { font-size: 0.78rem; color: #a9adc1; line-height: 1.4; }
+
+        .socials { display: flex; gap: 10px; width: 100%; justify-content: center; }
+        .socials a { width: 36px; height: 36px; background: #1e1e24; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; border: 1px solid #2e2e38; transition: 0.3s; }
+        .socials a:hover { background: #3b82f6; border-color: #3b82f6; transform: translateY(-3px); }
+
+        /* CỘT PHẢI: Nội dung chính */
+        .main-content { flex: 1; padding: 35px 30px; display: flex; flex-direction: column; gap: 20px; }
+        
+        .cv-section { background: #25252d; padding: 18px 20px; border-radius: 14px; border: 1px solid #2e2e38; }
+        .cv-section h3 { color: #fff; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #2e2e38; padding-bottom: 8px; }
+        .cv-section h3 i { color: #3b82f6; }
+
+        .item-block { margin-bottom: 12px; }
+        .item-block:last-child { margin-bottom: 0; }
+        
+        .cv-list { list-style: none; }
+        .cv-list li { font-size: 0.85rem; margin-bottom: 6px; position: relative; padding-left: 16px; color: #cbd5e1; }
+        .cv-list li::before { content: '•'; color: #3b82f6; font-weight: bold; position: absolute; left: 0; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+        .skill-card { background: #1e1e24; padding: 12px; border-radius: 8px; border: 1px solid #2e2e38; transition: transform 0.2s ease, border-color 0.2s ease; }
+        .skill-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+        .skill-card span { font-size: 0.85rem; color: #fff; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .skill-card span i { color: #10b981; }
+
+        @media (max-width: 800px) {
+            .portfolio-container { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #2e2e38; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Họ và tên -->
-    <h1>Họ và tên: Doãn Anh Tú</h1>
 
-    <!-- Ảnh đại diện (Đảm bảo có file avatar.jpg cùng thư mục) -->
-    <img src="doan_anh_tu.jpg" alt="Ảnh đại diện Doãn Anh Tú" width="200">
+<div class="portfolio-container">
+    <!-- CỘT TRÁI: Ảnh đại diện & Thông tin cá nhân -->
+    <div class="sidebar">
+        <div class="avatar-box">
+            <img src="doan_anh_tu.jpg" alt="Ảnh đại diện Doãn Anh Tú" width="125" height="125">
+        </div>
+        <h2>Doãn Anh Tú</h2>
+        <span class="role">Sinh viên</span>
 
-    <!-- Thông tin cơ bản -->
-    <p><strong>Mã sinh viên:</strong> 24100081</p>
-    <p><strong>Ngày sinh:</strong> 08/05/2006</p>
-    <p><strong>Giới tính:</strong> Nam</p>
+        <div class="personal-info">
+            <div class="info-item">
+                <i class="fa-solid fa-id-card"></i>
+                <div>
+                    <span>Mã sinh viên</span>
+                    <strong>24100081</strong>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-cake-candles"></i>
+                <div>
+                    <span>Ngày sinh</span>
+                    <strong>08/05/2006</strong>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                    <span>Giới tính</span>
+                    <strong>Nam</strong>
+                </div>
+            </div>
+        </div>
 
-    <!-- Sở thích -->
-    <h3>Sở thích</h3>
-    <ul>
-        <li>Lập trình Web</li>
-        <li>Đọc sách công nghệ</li>
-        <li>Chơi thể thao</li>
-    </ul>
+        <div class="objective-box">
+            <h4><i class="fa-solid fa-bullseye"></i> Mục tiêu cá nhân</h4>
+            <p>Trở thành một Web Developer chuyên nghiệp.</p>
+        </div>
 
-    <!-- Sở trường -->
-    <h3>Sở trường</h3>
-    <ul>
-        <li>Thiết kế giao diện HTML/CSS</li>
-        <li>Kỹ năng giải quyết vấn đề</li>
-    </ul>
+        <div class="socials">
+            <a href="https://www.facebook.com/?locale=vi_VN" target="_blank" title="Facebook cá nhân"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
 
-    <!-- Thông tin bổ sung (Khuyến khích) -->
-    <h3>Mục tiêu cá nhân</h3>
-    <p>Trở thành một Web Developer chuyên nghiệp.</p>
+    <!-- CỘT PHẢI: Chi tiết Sở thích & Sở trường -->
+    <div class="main-content">
+        <!-- SỞ THÍCH -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-heart"></i> SỞ THÍCH</h3>
+            <div class="item-block">
+                <ul class="cv-list">
+                    <li>Lập trình Web</li>
+                    <li>Đọc sách công nghệ</li>
+                    <li>Chơi thể thao</li>
+                </ul>
+            </div>
+        </div>
 
-    <h3>Liên hệ / Mạng xã hội</h3>
-    <a href="https://www.facebook.com/?locale=vi_VN" target="_blank">Facebook cá nhân</a>
+        <!-- SỞ TRƯỜNG -->
+        <div class="cv-section">
+            <h3><i class="fa-solid fa-star"></i> SỞ TRƯỜNG</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span><i class="fa-solid fa-check"></i> Thiết kế giao diện HTML/CSS</span>
+                </div>
+                <div class="skill-card">
+                    <span><i class="fa-solid fa-check"></i> Kỹ năng giải quyết vấn đề</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
